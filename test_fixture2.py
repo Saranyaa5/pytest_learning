@@ -13,7 +13,7 @@ def test_google_search_invalid(driver):
     search_box.send_keys("asldkfjalskdfj1234nonexistent")
     search_box.submit()
     time.sleep(3)
-    results = driver.find_elements(By.CSS_SELECTOR, "div#search")
+    results = driver.find_elements(By.CSS_SELECTOR,"div#search")
     assert len(results) > 0  # Page loads with search results area even for nonsense query
 
 def test_google_search_empty(driver):
