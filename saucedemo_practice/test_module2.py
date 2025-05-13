@@ -4,13 +4,10 @@ from utilities.excel_reader import get_exceldata
 import time
 
 @pytest.mark.usefixtures("setup_and_tear_down")
-class TestLogin2:
-
-    # Retrieve the login data manually from the Excel sheet
+class TestLogin3:
     login_data = get_exceldata("C:\pytest_learning\saucedemo_practice\excelfile\login_input.xlsx", "Sheet1")
 
     def test_login_locked_out_user(self):
-        # Test for the first user in the login_data
         username, password = self.login_data[0]
         self.driver.find_element(By.ID, "user-name").send_keys(username)
         self.driver.find_element(By.ID, "password").send_keys(password)
@@ -21,7 +18,7 @@ class TestLogin2:
             assert self.driver.find_element(By.XPATH, "//*[@id='login_button_container']/div/form/h3").is_displayed()
 
     def test_login_standard_user(self):
-        # Test for the second user in the login_data
+       
         username, password = self.login_data[1]
         self.driver.find_element(By.ID, "user-name").send_keys(username)
         self.driver.find_element(By.ID, "password").send_keys(password)
@@ -34,7 +31,7 @@ class TestLogin2:
             assert self.driver.find_element(By.XPATH, "//*[@id='logout_sidebar_link']").is_displayed()
 
     def test_login_problem_user(self):
-        # Test for the third user in the login_data
+       
         username, password = self.login_data[2]
         self.driver.find_element(By.ID, "user-name").send_keys(username)
         self.driver.find_element(By.ID, "password").send_keys(password)
@@ -45,7 +42,7 @@ class TestLogin2:
             assert self.driver.find_element(By.XPATH, "//*[@id='login_button_container']/div/form/h3").is_displayed()
 
     def test_login_performance_glitch_user(self):
-        # Test for the fourth user in the login_data
+        
         username, password = self.login_data[3]
         self.driver.find_element(By.ID, "user-name").send_keys(username)
         self.driver.find_element(By.ID, "password").send_keys(password)
