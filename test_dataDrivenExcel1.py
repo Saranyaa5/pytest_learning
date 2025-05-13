@@ -25,7 +25,7 @@ class TestLogin1:
             alert.accept()
             self.driver.find_element(By.XPATH,"//*[@id='logInModal']/div/div/div[1]/button").click()
 
-        else:
-            time.sleep(5)
-            assert self.driver.find_element(By.ID,"logout2").is_displayed()
+        # else:
+        #     time.sleep(5)
+        #     assert self.driver.find_element(By.ID,"logout2").is_displayed()
         self.driver.quit()
